@@ -1,0 +1,23 @@
+[project]
+name = "ghl-wrapper"
+version = "0.1.0"
+description = "Python CLI wrapper for GoHighLevel API"
+dependencies = [
+    "click",
+    "httpx",
+    "pydantic",
+]
+requires-python = ">=3.11"
+
+[project.scripts]
+ghl = "ghl.cli:cli"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "src"
+]
+testpaths = ["tests"]
