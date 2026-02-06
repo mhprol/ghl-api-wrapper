@@ -6,6 +6,7 @@ dependencies = [
     "click",
     "httpx",
     "pydantic",
+    "PyYAML",
 ]
 requires-python = ">=3.11"
 

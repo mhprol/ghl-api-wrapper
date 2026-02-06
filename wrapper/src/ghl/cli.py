@@ -6,14 +6,15 @@ from .client import GHLClient
 from .endpoints import contacts, conversations, opportunities, calendars, workflows, objects, locations
 
 @click.group()
-@click.option('--api-key', envvar='GHL_API_KEY', help='API Key for GHL')
-@click.option('--location-id', envvar='GHL_LOCATION_ID', help='Location ID for GHL')
+@click.option('--api-key', help='API Key for GHL (or set GHL_API_KEY)')
+@click.option('--location-id', help='Location ID for GHL (or set GHL_LOCATION_ID)')
+@click.option('--profile', help='Use named profile from profiles.yaml')
 @click.pass_context
-def cli(ctx, api_key, location_id):
+def cli(ctx, api_key, location_id, profile):
     """GoHighLevel CLI Wrapper"""
     ctx.ensure_object(dict)
 
-    config = get_config(api_key, location_id)
+    config = get_config(api_key, location_id, profile)
     final_api_key = config.get("api_key")
     final_location_id = config.get("location_id")
 
